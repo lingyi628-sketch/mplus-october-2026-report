@@ -882,15 +882,18 @@ function ReportContent() {
             ["提现", count(cashOut), "份", "提现 / 领取 " + pct(cashOut / cashClaim)]
           ],} )
           , jsxRuntime.jsx(Plot, { id: "cash-stages", queryId: "cash_steps", title: "现金红包产券、领取与提现", rows: rows("cash_steps"),
-            spec: labeledBars({ x: "环节", fields: ["份数"] }),} )
+            spec: labeledBars({ x: "环节", fields: ["份数"] }), children: 
+            jsxRuntime.jsx('ul', { className: "mplus-plot-key", 'aria-label': "图例", children: 
+              jsxRuntime.jsxs('li', { children: [jsxRuntime.jsx('span', { className: "mplus-series-dot", style: { background: chartColors[0] }, 'aria-hidden': "true",} ), "红包数量（份）"]})
+            })
+          })
         ]})
       ]})
       , jsxRuntime.jsx(dataApp.RichNarrative, { id: "mplus:rewards-insight", className: "mplus-insight",
-        value: "10 月 15 日启用的首批体验金贡献了 **87.2%** 的领取量。每 100 份库存对应约 **92.3** 份领取，10 月 20 日启用的批次约 **27.2**。体验金实际花费 **45,356 元**，现金红包提现 **982 元**。"                 ,} )
+        value: "10 月 15 日批次领取 **92,303／100,000 份，领取率 92.3%**。10 月 20 日批次领取 **13,590／50,000 份，领取率 27.2%**。首批贡献 **87.2%** 的领取量。体验金实际花费 **45,356 元**，现金红包提现 **982 元**。"                  ,} )
       , jsxRuntime.jsx(EvidenceTable, { id: "trial-by-product", queryId: "trial_products", title: "基金体验金按产品汇总", rows: trial,
         columns: [["产品"],["批次份数","批次份数",count],["领取份数","领取份数",count],["核销份数","核销份数",count],
           ["核销领取比","核销率",pct],["首批预估率","10/15 批平台预估转化率",pct],["补批预估率","10/20 批平台预估转化率",pct],["实际花费元","实际花费（元）",count]],} )
-      , jsxRuntime.jsxs('p', { className: "mplus-metric-note", children: ["预估转化率为招财号后台的批次原值。", jsxRuntime.jsx('a', { href: "#method", children: "查看取数规则与示例"})]})
       , jsxRuntime.jsx(EvidenceTable, { id: "cash-by-batch", queryId: "cash_batches", title: "现金红包按批次核对", rows: cash,
         columns: [["批次号","批次"],["启用"],["产券份数","产券份数",count],["领取份数","领取份数",count],["领取人次","领取人次",count],
           ["提现份数","提现份数",count],["提现人次","提现人次",count],["提现金额元","提现金额（元）",count]],} )
