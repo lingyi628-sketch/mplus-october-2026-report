@@ -825,8 +825,9 @@ function ReportContent() {
         columns: [["入口"],["PV","访问次数",count],["PV占比","访问占比",pct],["访问人次","访问人次",count],["点击人次","点击人次",count],["点击率","点击率",pct]],} )
     ]})
 
-    , jsxRuntime.jsxs(Chapter, { id: "rewards", number: "02", title: "奖品权益领取与使用", date: "批次数据截至 11 月 3 日 · 领取有效期至 10 月 31 日"          , children: [
-      jsxRuntime.jsxs('div', { className: "mplus-two mplus-reward-grid" , children: [
+    , jsxRuntime.jsxs(Chapter, { id: "rewards", number: "02", title: "奖品权益领取与使用", date: "批次数据截至 11 月 4 日 · 领取有效期至 10 月 31 日"          , children: [
+      jsxRuntime.jsx('p', { className: "mplus-metric-note", children: "当前展示的数值取自 11 月 3 日快照，11 月 4 日体验金数据待核验。"       })
+      , jsxRuntime.jsxs('div', { className: "mplus-two mplus-reward-grid" , children: [
         jsxRuntime.jsxs('div', { children: [
           jsxRuntime.jsx(dataApp.RichNarrative, { id: "mplus:trial-title", className: "mplus-topic", value: "### 基金体验金" ,} )
           , jsxRuntime.jsx(Readout, { items: [
